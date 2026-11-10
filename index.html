@@ -100,6 +100,10 @@ h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.5vw,2.1re
 @media (prefers-reduced-motion: reduce){.proj:hover{transform:none}}
 .proj.feature{padding:32px;background:linear-gradient(180deg,rgba(91,155,255,.06),transparent 55%),var(--surface)}
 .tag{align-self:flex-start;font-family:var(--mono);font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px;margin-bottom:14px}
+.tag-live{display:inline-flex;align-items:center;gap:8px;color:var(--signal);background:rgba(245,165,36,.1)}
+.cert{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.cert b{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.cert span{font-size:13px;color:var(--signal);display:inline-flex;align-items:center;gap:8px}
 .proj h3{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.015em;margin:0}
 .proj.feature h3{font-size:1.5rem}
 .proj p{margin:10px 0 0;color:var(--muted);max-width:62ch}
@@ -204,8 +208,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <p class="eyebrow">// projects</p>
     <h2>Things I've built</h2>
     <div class="projects">
-      <a class="proj feature" href="https://github.com/MoArham29/SLMS_System_OOP_MO" target="_blank" rel="noopener">
-        <span class="tag">Featured</span>
+      <div class="proj feature">
+        <span class="tag tag-live"><span class="dot" aria-hidden="true"></span>In progress · Nov 2026</span>
+        <h3>Cloud-MC: AWS infrastructure for a medical centre</h3>
+        <p>A secure, reliable and cost-efficient AWS system for a medical service centre moving off its own servers, serving clients 24/7 in Denmark, Luxembourg and Ireland.</p>
+        <ul>
+          <li>Custom VPC with public and private subnets, security groups and SSH key-pair access to EC2 web, mail and proxy servers</li>
+          <li>Encrypted EBS storage with snapshots, custom AMIs, and a load balancer with tuned health checks that removes unhealthy instances</li>
+          <li>S3 storage with folder-level access control and tiers for mid- and long-term data</li>
+          <li>CloudWatch dashboard tracking CPU, disk, network, status checks and healthy hosts</li>
+          <li>A dynamic web application deployed on the platform, with the architecture mapped across regions and Availability Zones</li>
+        </ul>
+        <ul class="stack"><li>EC2</li><li>VPC</li><li>S3</li><li>EBS</li><li>ELB</li><li>CloudWatch</li></ul>
+      </div>
+      <a class="proj" href="https://github.com/MoArham29/SLMS_System_OOP_MO" target="_blank" rel="noopener">
         <h3>Smart Library Management System</h3>
         <p>A console application that runs a library end to end: books, members, borrowing, returns and reservations, with everything stored in a SQLite database.</p>
         <ul>
@@ -297,9 +313,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <h2>Toolkit</h2>
     <div class="skills">
       <div class="skill"><h3>Programming</h3><ul class="chips"><li>Python</li><li>Java</li><li>C++</li><li>SQL / SQLite</li></ul></div>
-      <div class="skill"><h3>Cloud &amp; infrastructure</h3><ul class="chips"><li>AWS</li><li>Networking fundamentals</li><li>Troubleshooting</li></ul></div>
+      <div class="skill"><h3>Cloud &amp; infrastructure</h3><ul class="chips"><li>AWS EC2</li><li>VPC</li><li>S3</li><li>EBS</li><li>Load balancing</li><li>CloudWatch</li><li>SSH</li><li>Networking fundamentals</li></ul></div>
       <div class="skill"><h3>Web &amp; data</h3><ul class="chips"><li>JavaScript</li><li>WordPress</li><li>Excel</li></ul></div>
       <div class="skill"><h3>Ways of working</h3><ul class="chips"><li>Team leadership</li><li>Decisions under pressure</li><li>Training others</li><li>Clear communication</li></ul></div>
+    </div>
+    <div class="cert">
+      <b>AWS Certified Cloud Practitioner</b>
+      <span><span class="dot" aria-hidden="true"></span>In progress</span>
     </div>
   </section>
 
