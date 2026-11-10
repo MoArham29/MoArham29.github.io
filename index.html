@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed Arham Abul Kalam</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Final-year Computer Science student focused on cloud and networking. Open to graduate roles in Leeds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark, single 960px column; generous spacing instead of rules; the traceroute sits in a terminal panel */
+:root{
+  --bg:#08080A; --surface:#111114; --surface-2:#17171B; --fg:#EDEDEF; --muted:#8A8A94; --faint:#5C5C66;
+  --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+  --accent:#5B9BFF; --accent-soft:rgba(91,155,255,.12); --signal:#F5A524;
+  --display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(60rem 30rem at 85% -10%, rgba(91,155,255,.10), transparent 60%);background-repeat:no-repeat}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:960px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+a{color:var(--fg);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(8,8,10,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px}
+.mark{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.mark b{color:var(--fg);font-weight:500}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--muted);font-size:14px;padding:6px 10px;border-radius:8px;transition:color .15s,background .15s}
+.nav ul a:hover{color:var(--fg);background:var(--surface-2)}
+@media (max-width:560px){.nav ul li:not(:last-child){display:none}}
+
+/* Hero */
+.hero{padding-block:88px 40px}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);padding:5px 12px 5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px rgba(245,165,36,.18);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.dot{animation:none}}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;letter-spacing:-.035em;margin:22px 0 0;text-wrap:balance}
+h1 .soft{color:var(--faint)}
+.role{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--muted);max-width:56ch;margin:22px 0 0}
+.role strong{color:var(--fg);font-weight:500}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 14.5px var(--body);padding:10px 18px;border-radius:10px;border:1px solid var(--line-strong);color:var(--fg);background:transparent;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.btn:hover{background:var(--surface-2);border-color:rgba(255,255,255,.28)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.primary:hover{background:#fff}
+.btn svg{width:16px;height:16px;fill:currentColor}
+
+.photo{width:clamp(140px,20vw,210px);aspect-ratio:4/5;max-width:100%;border-radius:18px;border:1px solid var(--line);background:linear-gradient(160deg,var(--surface-2),var(--surface));overflow:hidden;position:relative;margin:0}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+.photo .initials{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:clamp(2rem,4vw,2.8rem);color:var(--faint);letter-spacing:-.02em}
+@media (max-width:640px){.intro{grid-template-columns:1fr;gap:28px}.photo{grid-row:1;width:110px;border-radius:14px}}
+
+/* Terminal */
+.term{margin-top:64px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line-strong)}
+.term-bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+.trace{font-family:var(--mono);font-size:13.5px;margin:0;padding:10px 0;list-style:none}
+.trace .cmd{padding:8px 20px 12px;color:var(--muted)}
+.trace .cmd b{color:var(--accent);font-weight:500}
+.trace li.hop{display:grid;grid-template-columns:2ch minmax(0,1fr) auto;gap:18px;align-items:baseline;padding:9px 20px}
+.trace .n{color:var(--faint)}
+.trace .where b{font-weight:500}
+.trace .where span{color:var(--muted)}
+.trace .t{color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.trace li.next{background:rgba(245,165,36,.06)}
+.trace li.next .where b,.trace li.next .t{color:var(--signal)}
+@media (max-width:560px){.trace li.hop{grid-template-columns:2ch minmax(0,1fr);row-gap:0}.trace .t{grid-column:2}}
+
+/* Sections */
+section{padding-block:72px}
+.eyebrow{font-family:var(--mono);font-size:12px;color:var(--accent);margin:0 0 10px}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.5vw,2.1rem);letter-spacing:-.025em;margin:0 0 32px;text-wrap:balance}
+.about p{margin:0 0 16px;max-width:62ch;color:var(--muted);font-size:1.05rem}
+.about p:first-child{color:var(--fg);font-size:1.25rem;line-height:1.5;letter-spacing:-.01em}
+
+/* Projects */
+.projects{display:grid;gap:16px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:720px){.pair{grid-template-columns:1fr}}
+.proj{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;min-width:0;transition:border-color .2s,transform .2s}
+.proj:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+@media (prefers-reduced-motion: reduce){.proj:hover{transform:none}}
+.proj.feature{padding:32px;background:linear-gradient(180deg,rgba(91,155,255,.06),transparent 55%),var(--surface)}
+.tag{align-self:flex-start;font-family:var(--mono);font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px;margin-bottom:14px}
+.proj h3{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.015em;margin:0}
+.proj.feature h3{font-size:1.5rem}
+.proj p{margin:10px 0 0;color:var(--muted);max-width:62ch}
+.proj ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.proj ul li{position:relative;padding-left:20px;color:var(--muted)}
+.proj ul li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:2px;background:var(--accent)}
+.stack{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:20px 0 0}
+.stack li{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--surface-2);padding:3px 9px;border-radius:6px}
+.more{margin-top:auto;padding-top:22px;font-size:14px;color:var(--fg);display:inline-flex;gap:6px;align-items:center}
+.more span{transition:transform .15s}
+.more:hover span{transform:translateX(3px)}
+
+/* Experience */
+.roles{display:grid;border-top:1px solid var(--line)}
+.r{display:grid;grid-template-columns:180px minmax(0,1fr);gap:8px 32px;padding-block:28px;border-bottom:1px solid var(--line)}
+.r .when{font-family:var(--mono);font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums;padding-top:3px}
+.r h3{font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;margin:0}
+.r .org{color:var(--muted);margin:2px 0 0}
+.r ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:6px;max-width:66ch}
+.r ul li{position:relative;padding-left:18px;color:var(--muted)}
+.r ul li::before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--faint)}
+.num{color:var(--fg);font-weight:500}
+@media (max-width:620px){.r{grid-template-columns:1fr;gap:4px}}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:620px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.skill h3{font-size:13px;font-weight:500;color:var(--muted);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{font-size:14px;padding:6px 12px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line)}
+
+/* Contact */
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(28px,5vw,48px);background-image:radial-gradient(40rem 18rem at 100% 0%, rgba(91,155,255,.10), transparent 60%)}
+.contact-card h2{margin-bottom:12px}
+.contact-card p{margin:0;max-width:52ch;color:var(--muted)}
+.addr{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.addr code{font-family:var(--mono);font-size:clamp(.95rem,2.6vw,1.15rem);user-select:all;word-break:break-all;background:var(--surface-2);border:1px solid var(--line);padding:9px 14px;border-radius:10px}
+.copied{font-family:var(--mono);font-size:12px;color:var(--accent)}
+footer{padding-block:40px 56px;font-size:13px;color:var(--faint)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top"><b>arham</b>@leeds:~$</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="intro">
+      <div>
+        <span class="status"><span class="dot" aria-hidden="true"></span>Open to graduate roles · Leeds · 2027</span>
+        <h1>Mohamed Arham<br><span class="soft">Abul Kalam</span></h1>
+        <p class="role"><strong>Final-year Computer Science student</strong>, predicted First Class, building towards a career in cloud and network engineering.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn" href="https://github.com/MoArham29" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/mohamed-arham-abul-kalam-0532a9214/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.35-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.02zm4.93 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.16 1.2v.02h-.02l.02-.02V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>LinkedIn</a>
+        </div>
+      </div>
+      <!-- PHOTO: put a file called me.jpg next to this page. Until it exists, initials show instead. -->
+      <figure class="photo">
+        <span class="initials" aria-hidden="true">MA</span>
+        <img src="me.jpg" alt="Mohamed Arham Abul Kalam" onerror="this.remove()">
+      </figure>
+    </div>
+
+    <div class="term">
+      <div class="term-bar"><i></i><i></i><i></i><span>route so far</span></div>
+      <ol class="trace" aria-label="Route so far">
+        <li class="cmd"><b>$</b> traceroute mohamed-arham</li>
+        <li class="hop"><span class="n">1</span><span class="where"><b>Sri Lanka</b> <span>· IGCSE, Stafford International School</span></span><span class="t">2021–22</span></li>
+        <li class="hop"><span class="n">2</span><span class="where"><b>Dubai</b> <span>· Student Intern, Aristostar</span></span><span class="t">2023–24</span></li>
+        <li class="hop"><span class="n">3</span><span class="where"><b>High Wycombe</b> <span>· BSc Computer Science, BNU</span></span><span class="t">2024–27</span></li>
+        <li class="hop"><span class="n">4</span><span class="where"><b>West Yorkshire</b> <span>· Duty Manager, Tesco</span></span><span class="t">2026–now</span></li>
+        <li class="hop next"><span class="n">5</span><span class="where"><b>Leeds</b> <span>· graduate cloud / network role</span></span><span class="t">* * * awaiting reply</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <section id="about">
+    <p class="eyebrow">// about</p>
+    <h2>A bit about me</h2>
+    <div class="about">
+      <p>I like understanding how systems connect, finding where they break, and making them run reliably.</p>
+      <p>I build in Python, Java and C++, and I'm developing hands-on skills in AWS and networking. Alongside my degree I run shifts as a Duty Manager at Tesco, where I lead a team, make quick calls under pressure and stay calm when things go wrong.</p>
+      <p>I'm looking for Graduate Cloud Engineer, Network Engineer, IT Support or Junior Software roles, on-site or hybrid.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="eyebrow">// projects</p>
+    <h2>Things I've built</h2>
+    <div class="projects">
+      <a class="proj feature" href="https://github.com/MoArham29/SLMS_System_OOP_MO" target="_blank" rel="noopener">
+        <span class="tag">Featured</span>
+        <h3>Smart Library Management System</h3>
+        <p>A console application that runs a library end to end: books, members, borrowing, returns and reservations, with everything stored in a SQLite database.</p>
+        <ul>
+          <li>Login with role-based access for Member, Librarian and Admin</li>
+          <li>Class hierarchy using inheritance, encapsulation and polymorphism, designed first in UML</li>
+          <li>Search by title and author, plus automatic overdue reporting</li>
+          <li>Built iteratively over 44 commits for the Object-Oriented Programming module</li>
+        </ul>
+        <ul class="stack"><li>C++</li><li>SQLite</li><li>OOP</li><li>UML</li></ul>
+        <span class="more">View on GitHub <span>→</span></span>
+      </a>
+      <div class="pair">
+        <a class="proj" href="https://github.com/MoArham29/attendance-app" target="_blank" rel="noopener">
+          <h3>Attendance App</h3>
+          <p>A full-stack web app with a separate frontend and backend, plus a written deployment guide.</p>
+          <ul class="stack"><li>JavaScript</li><li>Node</li></ul>
+          <span class="more">View on GitHub <span>→</span></span>
+        </a>
+        <a class="proj" href="https://github.com/MoArham29/Q-SyS" target="_blank" rel="noopener">
+          <h3>Q-SyS</h3>
+          <p>A Python project built for the Algorithms and Data Structures module.</p>
+          <ul class="stack"><li>Python</li><li>Algorithms</li></ul>
+          <span class="more">View on GitHub <span>→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="eyebrow">// experience</p>
+    <h2>Work and leadership</h2>
+    <div class="roles">
+      <div class="r">
+        <span class="when">Jan 2026 – now</span>
+        <div>
+          <h3>Duty Manager</h3>
+          <p class="org">Tesco · West Yorkshire</p>
+          <ul>
+            <li>Promoted from Retail Assistant to run shifts in a busy, customer-facing store</li>
+            <li>Lead a team of <span class="num">5</span> colleagues per shift, allocating tasks as demand changes</li>
+            <li>Resolve customer and operational issues on the spot, keeping health, safety and security procedures on track</li>
+            <li>Train new colleagues so they settle in quickly</li>
+          </ul>
+        </div>
+      </div>
+      <div class="r">
+        <span class="when">May 2026 – now</span>
+        <div>
+          <h3>President, Islamic Society</h3>
+          <p class="org">Buckinghamshire New University · Vice President Nov 2024 – 2026</p>
+          <ul>
+            <li>Lead an <span class="num">8</span>-person committee running <span class="num">10–15</span> events a year for <span class="num">400</span> members</li>
+            <li>Grew membership and attendance by <span class="num">30%</span> through social media and campus promotion</li>
+          </ul>
+        </div>
+      </div>
+      <div class="r">
+        <span class="when">Sep 2024 – Oct 2026</span>
+        <div>
+          <h3>Student Representative</h3>
+          <p class="org">Buckinghamshire New University</p>
+          <ul><li>Represented <span class="num">113</span> students at staff–student meetings with clear, evidence-based feedback</li></ul>
+        </div>
+      </div>
+      <div class="r">
+        <span class="when">Sep 2024 – Jan 2026</span>
+        <div>
+          <h3>Retail Assistant</h3>
+          <p class="org">Tesco · Watford</p>
+        </div>
+      </div>
+      <div class="r">
+        <span class="when">Nov 2023 – May 2024</span>
+        <div>
+          <h3>Student Intern</h3>
+          <p class="org">Aristostar · Dubai, UAE</p>
+          <ul>
+            <li>Cleaned and organised company data in Excel using formulas</li>
+            <li>Built and managed website content in WordPress</li>
+            <li>Introduced a prospective client and set up meetings with the sales team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow">// skills</p>
+    <h2>Toolkit</h2>
+    <div class="skills">
+      <div class="skill"><h3>Programming</h3><ul class="chips"><li>Python</li><li>Java</li><li>C++</li><li>SQL / SQLite</li></ul></div>
+      <div class="skill"><h3>Cloud &amp; infrastructure</h3><ul class="chips"><li>AWS</li><li>Networking fundamentals</li><li>Troubleshooting</li></ul></div>
+      <div class="skill"><h3>Web &amp; data</h3><ul class="chips"><li>JavaScript</li><li>WordPress</li><li>Excel</li></ul></div>
+      <div class="skill"><h3>Ways of working</h3><ul class="chips"><li>Team leadership</li><li>Decisions under pressure</li><li>Training others</li><li>Clear communication</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="eyebrow">// education</p>
+    <h2>Education</h2>
+    <div class="roles">
+      <div class="r">
+        <span class="when">2024 – 2027</span>
+        <div><h3>BSc (Hons) Computer Science</h3><p class="org">Buckinghamshire New University · Predicted First Class</p></div>
+      </div>
+      <div class="r">
+        <span class="when">2023 – 2024</span>
+        <div><h3>A-Levels &amp; BTEC</h3><p class="org">Al Salam Community School · Computer Science, Engineering, Marketing</p></div>
+      </div>
+      <div class="r">
+        <span class="when">2021 – 2022</span>
+        <div><h3>IGCSE</h3><p class="org">Stafford International School, Sri Lanka</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <p class="eyebrow">// contact</p>
+      <h2>Let's talk</h2>
+      <p>Hiring for a graduate role, or want to talk cloud, networking or tech careers? Email me and I'll get back to you.</p>
+      <div class="addr">
+        <code id="email">arhamkalam321@gmail.com</code>
+        <button class="btn primary" id="copy" type="button">Copy email</button>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mohamed Arham Abul Kalam</span>
+    <span>Dewsbury, West Yorkshire</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'),out=document.getElementById('copied'),el=document.getElementById('email');
+  function selectIt(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}
+  btn.addEventListener('click',function(){
+    var text=el.textContent.trim();
+    try{
+      navigator.clipboard.writeText(text).then(function(){out.textContent='Copied';setTimeout(function(){out.textContent='';},2000);},function(){selectIt();out.textContent='Selected, press Ctrl+C';});
+    }catch(e){selectIt();out.textContent='Selected, press Ctrl+C';}
+  });
+})();
+</script>
+</body>
+</html>
